@@ -1,0 +1,24 @@
+name: SonarQube pipeline
+
+on:
+  # pull_request:
+  #   branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  sonarqube:
+    runs-on: [self-hosted, wsl-vishnu]
+
+    steps:
+      - name: Clone code
+        uses: actions/checkout@v7
+
+      - name: Sonarqube Scan
+        uses: SonarSource/sonarqube-scan-action@v8
+        with:
+          args: >
+            -Dsonar.projectKey=Node
+            -Dsonar.sources=.
+            -Dsonar.host.url=${{ vars.SONAR_HOST_URL }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.qualitygate.wait=true
