@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Dockerhub Login Build and Push
-        uses: Vishnuvardhan-m-27/Vishnurevamp/tree/main/.github/actions/docker-build-push@main
+        uses: Vishnuvardhan-m-27/Vishnurevamp/blob/main/.github/actions/docker-build-push/action.yaml@main
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
