@@ -17,7 +17,7 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v8
         with:
           args: >
-            -Dsonar.projectKey=vishnu
-            -Dsonar.sources=.
+            -Dsonar.projectKey=zaara 
+            -Dsonar.sources=. 
             -Dsonar.host.url=${{vars.SONAR_HOST_URL}}
             -Dsonar.login=${{secrets.SONAR_TOKEN}}
