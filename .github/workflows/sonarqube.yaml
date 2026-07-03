@@ -19,5 +19,5 @@ jobs:
           args: >
             -Dsonar.projectKey=vishnu
             -Dsonar.sources=.
-            -Dsonar.host.url=http://localhost:9000 
-            -Dsonar.login=sqp_ea0be4ea99ccf66ae505969181ef7ead1506c29d
+            -Dsonar.host.url=${{vars.SONAR_HOST_URL}}
+            -Dsonar.login=${{secrets.SONAR_TOKEN}}
