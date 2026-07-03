@@ -1,0 +1,6 @@
+From node:latest
+WORKDIR /app
+COPY . .
+EXPOSE 8080
+ENTRYPOINT ["NODE"]
+CMD ["server.js"]
