@@ -3,13 +3,12 @@ const dotenv = require('dotenv');
 
 const env = process.argv[2] || "development";
 dotenv.config({ path: `.env.${env}` });
+const app =express();
 
 function log(message) {
     const time = new Date().toISOString();
     console.log(`[${time}] [${env.toUpperCase()}] ${message}`);
 }
-
-const app = express();
 
 const PORT = process.env.PORT;
 const APP = process.env.APP;
@@ -24,6 +23,12 @@ app.get('/health', (req, res) => {
         status: "UP"
     });
 });
+
+app.post('/webhook', (req, res) => {
+	console.log("Webhook received:"); 
+	console.log(req.body);
+	res.status(200).send("Received");
+});	
 
 app.listen(PORT, () => {
    log("Server running on port" + PORT);
