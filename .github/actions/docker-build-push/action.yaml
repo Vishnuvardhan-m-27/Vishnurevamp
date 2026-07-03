@@ -20,7 +20,7 @@ runs:
 
     - name: Build Docker image
       shell: bash
-      run: docker build -f Dockerfile.multistage.secured -t dockerfile .
+      run: docker build -f dockermultistage.secured -t dockerfile .
 
     - name: Tag Docker image
       id: tag
